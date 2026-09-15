@@ -1,0 +1,59 @@
+{
+  "name": "yjs-lens",
+  "version": "0.1.0",
+  "description": "Verifies the convergence guarantee actually holds for a set of Yjs updates, and summarizes causal update history -- debugging tooling for Yjs beyond Y.logUpdate().",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build && npm run test"
+  },
+  "keywords": [
+    "yjs",
+    "crdt",
+    "local-first",
+    "debugging",
+    "convergence",
+    "collaborative-editing"
+  ],
+  "author": "jayblast-spec",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayblast-spec/yjs-lens.git"
+  },
+  "homepage": "https://github.com/jayblast-spec/yjs-lens#readme",
+  "bugs": {
+    "url": "https://github.com/jayblast-spec/yjs-lens/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "yjs": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.2",
+    "vitest": "^5.0.1",
+    "yjs": "^13.6.32"
+  }
+}
