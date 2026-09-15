@@ -4,6 +4,8 @@
 [![npm](https://img.shields.io/npm/v/yjs-lens)](https://www.npmjs.com/package/yjs-lens)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
+![yjs-lens: verifying convergence across random update orderings](./docs/banner.svg)
+
 **Verifies the convergence guarantee actually holds for a set of [Yjs](https://yjs.dev) updates, and summarizes causal update history — debugging tooling for Yjs beyond `Y.logUpdate()`.**
 
 ## The gap this fills
