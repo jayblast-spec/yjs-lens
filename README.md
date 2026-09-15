@@ -3,6 +3,7 @@
 [![CI](https://github.com/jayblast-spec/yjs-lens/actions/workflows/ci.yml/badge.svg)](https://github.com/jayblast-spec/yjs-lens/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/yjs-lens)](https://www.npmjs.com/package/yjs-lens)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![Docs](https://img.shields.io/badge/docs-yjs--lens.vercel.app-5eeab0)](https://yjs-lens.vercel.app)
 
 ![yjs-lens: verifying convergence across random update orderings](./docs/banner.svg)
 
