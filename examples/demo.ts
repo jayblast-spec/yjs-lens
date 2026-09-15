@@ -4,7 +4,7 @@
  * summarize who contributed what. Run with: npx tsx examples/demo.ts
  */
 import * as Y from "yjs";
-import { summarizeUpdate, checkConvergence } from "../src/index.js";
+import { summarizeUpdate, checkConvergence, updateSummaryToMermaid } from "../src/index.js";
 
 function newDoc(clientID: number): Y.Doc {
   const doc = new Y.Doc();
@@ -34,3 +34,6 @@ const earlierUpdate = Y.encodeStateAsUpdate(docB, Y.encodeStateVector(newDoc(2))
 const result = checkConvergence([finalUpdate, earlierUpdate], { orderings: 20 });
 console.log(`Converged: ${result.converged} (tried ${result.orderingsTried} random application orders)`);
 console.log(`Final content: ${JSON.stringify(docA.getMap("post").toJSON())}`);
+
+console.log("\n=== Mermaid: who contributed to the final update (paste into a ```mermaid block) ===");
+console.log(updateSummaryToMermaid(summarizeUpdate(finalUpdate)));

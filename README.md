@@ -1,5 +1,9 @@
 # yjs-lens
 
+[![CI](https://github.com/jayblast-spec/yjs-lens/actions/workflows/ci.yml/badge.svg)](https://github.com/jayblast-spec/yjs-lens/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/yjs-lens)](https://www.npmjs.com/package/yjs-lens)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+
 **Verifies the convergence guarantee actually holds for a set of [Yjs](https://yjs.dev) updates, and summarizes causal update history — debugging tooling for Yjs beyond `Y.logUpdate()`.**
 
 ## The gap this fills
@@ -15,6 +19,18 @@ Applies a flat set of updates (gathered from any number of diverged replicas) to
 
 ### `summarizeUpdate(update)`
 Yjs represents causal history as per-client clock ranges rather than Automerge-style discrete named changes. This surfaces that structure directly: which client IDs contributed to an update, and what clock range (how many ops) each one covers.
+
+### `updateSummaryToMermaid(summary)`
+Renders a `summarizeUpdate` result as a [Mermaid](https://mermaid.js.org) diagram — paste into a ` ```mermaid ` fenced block anywhere that renders Markdown (GitHub does this natively) instead of reading a table of client IDs and clock ranges:
+
+```mermaid
+graph LR
+  update(("update"))
+  client0["client 1\nclock 0-2\n2 op(s)"]
+  update --> client0
+  client1["client 2\nclock 0-1\n1 op(s)"]
+  update --> client1
+```
 
 ## Install
 
@@ -53,7 +69,7 @@ npx tsx examples/demo.ts
 ## Non-goals (v1)
 
 - Conflict/winner explanation (see above — not safely buildable on stable API).
-- A visual UI — this is a library producing structured results.
+- A live, interactive UI — `updateSummaryToMermaid` produces static diagram source you render yourself.
 - Y.Text / rich-text-specific diffing beyond what generic content materialization gives you.
 
 ## Development
